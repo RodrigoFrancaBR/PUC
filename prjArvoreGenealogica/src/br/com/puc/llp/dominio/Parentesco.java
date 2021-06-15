@@ -1,0 +1,7 @@
+package br.com.puc.llp.dominio;
+
+public enum Parentesco {
+
+	SEM_PARENTESCO, MESMA_PESSOA, PAIS, PAI, MAE, MARIDO, ESPOSA, IRMAOS, IRMÃO, IRMÃ,
+	FILHO, FILHA, TIOS, TIO, TIA, SOBRINHO, SOBRINHA, PRIMOS, PRIMO, PRIMA, AVÓS, AVÔ, AVÓ, NETO, NETA;
+}
