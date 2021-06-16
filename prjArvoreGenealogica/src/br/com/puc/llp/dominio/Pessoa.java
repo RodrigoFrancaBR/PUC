@@ -9,6 +9,7 @@ public class Pessoa {
 	protected int idade;
 	protected Pessoa pai;
 	protected Pessoa mae;
+	private   EstadoCivil estadoCivil =  EstadoCivil.SOLTEIRO;
 
 	protected Pessoa conjuge;
 	protected List<Pessoa> exConjuges = new ArrayList<Pessoa>();
@@ -64,6 +65,10 @@ public class Pessoa {
 		if (this.getConjuge() != null || pessoa.getConjuge() != null) {
 			throw new IllegalArgumentException("Não pode casar com uma pessoa já casada");
 		}
+		
+		if (this.estadoCivil == EstadoCivil.CASADO || pessoa.estadoCivil == EstadoCivil.CASADO){
+			throw new IllegalArgumentException("Não pode casar com uma pessoa já casada");
+		}
 
 		if (this.getIdade() < 18 || pessoa.getIdade() < 18) {
 			throw new IllegalArgumentException("Idade mínima para casar é 18 ");
@@ -76,7 +81,11 @@ public class Pessoa {
 		}
 
 		this.conjuge = pessoa;
+		this.estadoCivil = EstadoCivil.CASADO;
+		
 		pessoa.conjuge = this;
+		pessoa.estadoCivil = EstadoCivil.CASADO;
+		
 
 	}
 
@@ -132,11 +141,14 @@ public class Pessoa {
 		if (!this.equals(pessoa.getConjuge()) || !pessoa.equals(this.getConjuge())) {
 			throw new IllegalArgumentException("Pessoa informada não é seu conjuge ou vice versa");
 		}
-
+		
 		this.exConjuges.add(pessoa);
 		this.conjuge = null;
+		this.estadoCivil = EstadoCivil.DIVORCIADO;
+		
 		pessoa.exConjuges.add(this);
 		pessoa.conjuge = null;
+		pessoa.estadoCivil = EstadoCivil.DIVORCIADO;
 
 	}
 
@@ -158,32 +170,14 @@ public class Pessoa {
 		return pessoasComQuemCasei;
 
 	}
+	
 
 	/**
 	 * 
 	 * @return Estado civil da pessoa
 	 */
 	public EstadoCivil obterEstadoCivil() {
-
-		EstadoCivil estadoCivil = null;
-
-		// se não tiver cônjuge e a lista de exConjuges for vazia, é solteiro
-		if (this.conjuge == null && this.exConjuges.size() == 0) {
-			estadoCivil = EstadoCivil.SOLTEIRO;
-		}
-
-		// se não tiver cônjuge e a lista de exConjuges não for vazia, é
-		if (this.conjuge == null && this.exConjuges.size() > 0) {
-			estadoCivil = EstadoCivil.DIVORCIADO;
-		}
-
-		// se tiver conjuge é casado
-		if (this.conjuge != null) {
-			estadoCivil = EstadoCivil.CASADO;
-		}
-
-		return estadoCivil;
-
+		return this.estadoCivil;
 	}
 
 	/**
@@ -256,6 +250,8 @@ public class Pessoa {
 		if (pessoa == null) {
 			throw new IllegalArgumentException("Pessoa não informada");
 		}
+		
+		Parentesco p = Parentesco.obterParentesco(pessoa);
 
 		if (this.equals(pessoa)) {
 			return Parentesco.MESMA_PESSOA;
