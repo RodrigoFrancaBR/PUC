@@ -1,9 +1,11 @@
-package br.com.puc.state.opcao1;
+package br.com.puc.state.opcao2;
 
-public class Vazia extends State {
+public class Vazia implements State {
+
+	private MaquinaDeChiclete maquinaDeChiclete;
 
 	public Vazia(MaquinaDeChiclete maquinaDeChiclete) {
-		super(maquinaDeChiclete);
+		this.maquinaDeChiclete = maquinaDeChiclete;
 	}
 
 	@Override

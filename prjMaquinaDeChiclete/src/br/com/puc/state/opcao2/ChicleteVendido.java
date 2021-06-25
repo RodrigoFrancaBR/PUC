@@ -1,9 +1,11 @@
-package br.com.puc.state.opcao3;
+package br.com.puc.state.opcao2;
 
-public class ChicleteVendido extends State {
+public class ChicleteVendido implements State {
+
+	private MaquinaDeChiclete maquinaDeChiclete;
 
 	public ChicleteVendido(MaquinaDeChiclete maquinaDeChiclete) {
-		super(maquinaDeChiclete);
+		this.maquinaDeChiclete = maquinaDeChiclete;
 	}
 
 	@Override
@@ -25,7 +27,7 @@ public class ChicleteVendido extends State {
 	@Override
 	public void retirarChiclete() {
 		System.out.println("Retirando chiclete vendido.");
-		this.maquinaDeChiclete.alterarEstadoDaMaquina(new SemMoeda(maquinaDeChiclete));
+		this.maquinaDeChiclete.alterarEstadoDaMaquina(maquinaDeChiclete.getSemMoeda());
 		System.out.println("Chiclete retirado com sucesso.");
 	}
 

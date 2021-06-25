@@ -1,14 +1,21 @@
 package br.com.puc.state.opcao3;
 
-public interface State {
+public abstract class State {
 
-	void recarregarMaquina();
+	MaquinaDeChiclete maquinaDeChiclete;
 
-	void inserirMoeda();
+	public State(MaquinaDeChiclete maquinaDeChiclete) {
+		this.maquinaDeChiclete = maquinaDeChiclete;
+	}
 
-	void escolherChiclete();
+	public abstract void recarregarMaquina();
 
-	void retirarChiclete();
+	public abstract void inserirMoeda();
 
-	void ejetarMoeda();
+	public abstract void escolherChiclete();
+
+	public abstract void retirarChiclete();
+
+	public abstract void ejetarMoeda();
+
 }

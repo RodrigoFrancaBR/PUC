@@ -1,9 +1,11 @@
-package br.com.puc.state.opcao1;
+package br.com.puc.state.opcao2;
 
-public class SemMoeda extends State {
+public class SemMoeda implements State {
+
+	private MaquinaDeChiclete maquinaDeChiclete;
 
 	public SemMoeda(MaquinaDeChiclete maquinaDeChiclete) {
-		super(maquinaDeChiclete);
+		this.maquinaDeChiclete = maquinaDeChiclete;
 	}
 
 	@Override

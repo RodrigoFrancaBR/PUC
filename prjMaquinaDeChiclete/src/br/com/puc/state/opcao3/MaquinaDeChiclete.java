@@ -1,78 +1,43 @@
 package br.com.puc.state.opcao3;
 
 public class MaquinaDeChiclete {
-
-	private State vazia;
-	private State SemMoeda;
-	private State ComMoeda;
-	private State ChicleteVendido;
-	private State estadoAtual;
+	private State state;
 
 	public MaquinaDeChiclete() {
-		this.vazia = new Vazia(this);
-		SemMoeda = new SemMoeda(this);
-		ComMoeda = new ComMoeda(this);
-		ChicleteVendido = new ChicleteVendido(this);
-		this.estadoAtual = this.vazia;
+		this.state = new Vazia(this);
 	}
-
-	// obter estados
-
-	public State getVazia() {
-		return vazia;
-	}
-
-	public State getSemMoeda() {
-		return SemMoeda;
-	}
-
-	public State getComMoeda() {
-		return ComMoeda;
-	}
-
-	public State getChicleteVendido() {
-		return ChicleteVendido;
-	}
-
-	public State getEstadoAtual() {
-		return estadoAtual;
-	}
-
-	/**
-	 * métodos de negócio
-	 */
 
 	public void recarregarMaquina() {
 		System.out.println("Tentando recarregar a máquina com chiclete...");
-		this.estadoAtual.recarregarMaquina();
+		this.state.recarregarMaquina();
 	}
 
 	public void inserirMoeda() {
 		System.out.println("Tentando inserir moeda...");
-		this.estadoAtual.inserirMoeda();
+		this.state.inserirMoeda();
 	}
 
 	public void escolherChiclete() {
 		System.out.println("Tentando escolher chiclete...");
-		this.estadoAtual.escolherChiclete();
+		this.state.escolherChiclete();
 	}
 
 	public void retirarChiclete() {
 		System.out.println("Tentando retirar chiclete...");
-		this.estadoAtual.retirarChiclete();
+		this.state.retirarChiclete();
 	}
 
 	public void ejetarMoeda() {
 		System.out.println("Tentando ejetar moeda...");
-		this.estadoAtual.ejetarMoeda();
+		this.state.ejetarMoeda();
 	}
 
 	protected void alterarEstadoDaMaquina(State state) {
-		this.estadoAtual = state;
+		this.state = state;
 	}
 
 	public State obterEstadoAtualDaMaquina() {
-		return this.estadoAtual;
+		return this.state;
 	}
 
 }

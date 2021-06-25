@@ -1,6 +1,6 @@
 package br.com.puc.teste;
 
-import br.com.puc.state.opcao1.MaquinaDeChiclete;
+import br.com.puc.state.opcao3.MaquinaDeChiclete;
 
 public class TestaMaquinaDeChiclete {
 

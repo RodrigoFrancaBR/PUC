@@ -1,11 +1,9 @@
 package br.com.puc.state.opcao3;
 
-public class Vazia implements State {
-
-	private MaquinaDeChiclete maquinaDeChiclete;
+public class Vazia extends State {
 
 	public Vazia(MaquinaDeChiclete maquinaDeChiclete) {
-		this.maquinaDeChiclete = maquinaDeChiclete;
+		super(maquinaDeChiclete);
 	}
 
 	@Override
@@ -32,7 +30,7 @@ public class Vazia implements State {
 	@Override
 	public void recarregarMaquina() {
 		System.out.println("Recarregando máquina com chiclete.");
-		this.maquinaDeChiclete.alterarEstadoDaMaquina(maquinaDeChiclete.getSemMoeda());
+		this.maquinaDeChiclete.alterarEstadoDaMaquina(new SemMoeda(maquinaDeChiclete));
 		System.out.println("Máquina Recarregada com chiclete.");
 	}
 

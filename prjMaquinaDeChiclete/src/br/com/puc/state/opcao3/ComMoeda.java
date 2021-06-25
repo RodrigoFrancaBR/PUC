@@ -1,11 +1,9 @@
 package br.com.puc.state.opcao3;
 
-public class ComMoeda implements State {
-
-	private MaquinaDeChiclete maquinaDeChiclete;
+public class ComMoeda extends State {
 
 	public ComMoeda(MaquinaDeChiclete maquinaDeChiclete) {
-		this.maquinaDeChiclete = (maquinaDeChiclete);
+		super(maquinaDeChiclete);
 	}
 
 	@Override
@@ -21,7 +19,7 @@ public class ComMoeda implements State {
 	@Override
 	public void escolherChiclete() {
 		System.out.println("Escolhendo chiclete.");
-		this.maquinaDeChiclete.alterarEstadoDaMaquina(maquinaDeChiclete.getChicleteVendido());
+		this.maquinaDeChiclete.alterarEstadoDaMaquina(new ChicleteVendido(maquinaDeChiclete));
 		System.out.println("Chiclete escolhido com sucesso.");
 
 	}
@@ -34,8 +32,12 @@ public class ComMoeda implements State {
 	@Override
 	public void ejetarMoeda() {
 		System.out.println("Ejetando moeda.");
-		this.maquinaDeChiclete.alterarEstadoDaMaquina(maquinaDeChiclete.getSemMoeda());
+		this.maquinaDeChiclete.alterarEstadoDaMaquina(new SemMoeda(maquinaDeChiclete));
 		System.out.println("Moeda ejetada com sucesso.");
 	}
 
+	
+	
+	
+	
 }

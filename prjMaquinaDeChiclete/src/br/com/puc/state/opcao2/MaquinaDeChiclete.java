@@ -1,6 +1,7 @@
-package br.com.puc.state.opcao1;
+package br.com.puc.state.opcao2;
 
 public class MaquinaDeChiclete {
+
 	private State vazia;
 	private State SemMoeda;
 	private State ComMoeda;
@@ -11,9 +12,11 @@ public class MaquinaDeChiclete {
 		this.vazia = new Vazia(this);
 		SemMoeda = new SemMoeda(this);
 		ComMoeda = new ComMoeda(this);
-		ChicleteVendido = new ChicleteVendido(this);		
+		ChicleteVendido = new ChicleteVendido(this);
 		this.estadoAtual = this.vazia;
 	}
+
+	// obter estados
 
 	public State getVazia() {
 		return vazia;
@@ -34,6 +37,10 @@ public class MaquinaDeChiclete {
 	public State getEstadoAtual() {
 		return estadoAtual;
 	}
+
+	/**
+	 * métodos de negócio
+	 */
 
 	public void recarregarMaquina() {
 		System.out.println("Tentando recarregar a máquina com chiclete...");

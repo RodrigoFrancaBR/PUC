@@ -25,7 +25,7 @@ public class ChicleteVendido extends State {
 	@Override
 	public void retirarChiclete() {
 		System.out.println("Retirando chiclete vendido.");
-		this.maquinaDeChiclete.alterarEstadoDaMaquina(new SemMoeda(maquinaDeChiclete));
+		this.maquinaDeChiclete.alterarEstadoDaMaquina(maquinaDeChiclete.getSemMoeda());
 		System.out.println("Chiclete retirado com sucesso.");
 	}
 
