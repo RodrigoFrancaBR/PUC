@@ -13,6 +13,7 @@ public class Desligada extends State {
 
 	@Override
 	void ligar() {
+		// salvar no banco de dados...
 		this.impressora.alterarEstadoDaImpressora(impressora.getPronta());
 	}
 

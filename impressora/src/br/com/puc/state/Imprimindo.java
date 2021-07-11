@@ -1,5 +1,10 @@
 package br.com.puc.state;
 
+import br.com.puc.state.exception.NaoPodeColocarTintaException;
+import br.com.puc.state.exception.NaoPodeDesligarException;
+import br.com.puc.state.exception.NaoPodeImprimirException;
+import br.com.puc.state.exception.NaoPodeLigarException;
+
 public class Imprimindo extends State {
 
 	public Imprimindo(Impressora impressora) {
@@ -7,9 +12,8 @@ public class Imprimindo extends State {
 	}
 
 	@Override
-	void imprimir() {
-		System.err.println("Impressora imprimindo...");
-		// lançar exception...
+	void imprimir() throws NaoPodeImprimirException {
+		throw new NaoPodeImprimirException("Impressora imprimindo");
 	}
 
 	@Override
@@ -23,21 +27,18 @@ public class Imprimindo extends State {
 	}
 
 	@Override
-	void colocarTinta() {
-		System.err.println("Impressora imprimindo...");
-		// lançar exception...
+	void colocarTinta() throws NaoPodeColocarTintaException {
+		throw new NaoPodeColocarTintaException("Impressora imprimindo");
 	}
 
 	@Override
-	void ligar() {
-		System.err.println("Impressora imprimindo...");
-		// lançar exception...
+	void ligar() throws NaoPodeLigarException {
+		throw new NaoPodeLigarException("Impressora imprimindo");
 	}
 
 	@Override
-	void desligar() {
-		System.err.println("Impressora imprimindo...");
-		// lançar exception...
+	void desligar() throws NaoPodeDesligarException {
+		throw new NaoPodeDesligarException("Impressora imprimindo");
 	}
 
 }
