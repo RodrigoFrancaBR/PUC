@@ -10,7 +10,7 @@ import br.com.franca.puc.model.orcamento.Orcamento;
 public class Main {
 
 	public static void main(String[] args) {
-		Orcamento orcamento = new Orcamento(new BigDecimal("100.0"));
+		Orcamento orcamento = new Orcamento(new BigDecimal("100.0"),1);
 		CalculadoraDeImpostos calculadoraDeImpostos = new CalculadoraDeImpostos();
 		// ((1000 * 10) / 100) = 100 -- 1000 * 0.10 = 100
 		// BigDecimal calculoDoImpostoICMS = calculadoraDeImpostos.calcularImposto(orcamento, TipoDeImposto.ICMS);

@@ -29,7 +29,8 @@ public class CalculadoraDeImpostos {
 	}
 	*/	
 	
-	public BigDecimal calcularImposto (Orcamento orcamento, Imposto imposto){
+	public BigDecimal calcularImposto (Orcamento orcamento, Imposto imposto){		
 		return imposto.calcularImposto(orcamento);		
+					
 	}
 }
