@@ -5,11 +5,14 @@ import java.math.BigDecimal;
 import br.com.franca.puc.model.orcamento.Orcamento;
 
 public class CalculadoraDeImpostos {
-
-	// dado um orçamento(valor do seu orcamento) qual é o calculo do imposto?
-	// novo requisito dado um tipo do imposto qual o calculo do imposto?
-	// algorítimo para obter o calculo do imposto muda conforme o tipo de imposto (estratégia)
-	/*
+	
+/*Requisito:
+ * 1 Dado um Orçamento(valor do seu orcamento) qual é o valor do imposto em cima desse orçamento? 
+ * 2 Tipos de impostos ICMS = 10% e ISS = 6%
+ */
+	
+	/* Primeira solução..
+	
 	public BigDecimal calcularImposto(Orcamento orcamento, TipoDeImposto imposto) {
 		// 10% 10/100 = 0,1 ou 0.1
 		// Imposto ISS
@@ -30,7 +33,6 @@ public class CalculadoraDeImpostos {
 	*/	
 	
 	public BigDecimal calcularImposto (Orcamento orcamento, Imposto imposto){		
-		return imposto.calcularImposto(orcamento);		
-					
+		return imposto.calcularImposto(orcamento);
 	}
 }

@@ -272,5 +272,7 @@ servidores
 offline
 casaBuilder
 impressora
-prjStrategy/loja
-loja
+impressora
+prjStrategy
+prjChainOfResponsibility
+projetos/loja
