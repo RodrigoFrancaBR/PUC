@@ -11,6 +11,7 @@ import br.com.franca.puc.model.orcamento.Orcamento;
 public class CalculadoraDeDescontos {
 
 	public BigDecimal calcularDesconto(Orcamento orcamento) {
+		/*
 		BigDecimal valor = orcamento.obterValor();
 
 		int comparacao = valor.compareTo(new BigDecimal("500.0"));
@@ -23,7 +24,18 @@ public class CalculadoraDeDescontos {
 			return valor.multiply(new BigDecimal("0.1"));
 		}
 
-		return BigDecimal.ZERO;
+		return BigDecimal.ZERO;*/
+		// metodo poderia receber um orcamento e um desconto (interface)e retornava o desconto.calcular(orcamento)
+		// porem eu não sei qual é o valor do desconto, no caso do imposto eu sei quais impostos existem
+		/**
+		 * Se esse Orçamento tiver um desconto válido aplique, logo preciso passar por todos os tipos de descontos
+		 *  e validar se ele é aplicável ou não. E se não for aplicavel vai para o próximo desconto disponivel, 
+		 *  até encontrar um tipo de desconto que é aplicavel.
+		 */
+		
+		return null;
+		
+		
 
 	}
 }

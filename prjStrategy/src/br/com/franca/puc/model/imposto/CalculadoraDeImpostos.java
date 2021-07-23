@@ -1,8 +1,8 @@
-package br.com.franca.puc.model.orcamento;
+package br.com.franca.puc.model.imposto;
 
 import java.math.BigDecimal;
 
-import br.com.franca.puc.model.imposto.Imposto;
+import br.com.franca.puc.model.orcamento.Orcamento;
 
 public class CalculadoraDeImpostos {
 
