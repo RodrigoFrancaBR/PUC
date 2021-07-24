@@ -18,7 +18,7 @@ public class CalcularDescontos {
 		System.out.println(desconto2);
 
 		BigDecimal desconto3 = calculadora.calcularDesconto(new Orcamento(new BigDecimal("600"), 1)); // 10%
-		System.out.println(desconto3);
+		System.out.println(desconto3);		
 
 	}
 

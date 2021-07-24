@@ -27,13 +27,15 @@ public class CalculadoraDeDescontos {
 		 * return BigDecimal.ZERO;
 		 */
 
-		// e se o orcamento for maior que 500 e tiver mais de cinco itens qual
-		// dos dois ifs deveria cair?
-		// metodo poderia receber um orcamento e um desconto (interface)e
-		// retornava o desconto.calcular(orcamento)
-		// porem eu não sei qual é o valor do desconto, no caso do imposto eu
-		// sei quais impostos existem
-
+		/* E se o orcamento for maior que 500 e tiver mais de cinco itens qual dos dois ifs deveria cair?
+		 * A calculadora de desconto poderia receber um orcamento e um Desconto (interface) 
+		 * DescontoDeDezPorCento, descontoDeVintePorcento etc.. e ai cada Desconto faz o calculo baseado no valor do orcamento..
+		 * Porem a calculadora de descontos não sabe qual o desconto vem do cliente (main) 
+		 * A intenção é a calculadora receber um orcamento e aplicar descontos por qtdItens ou 
+		 * valor de orcamento ou outros coisas
+		 *
+		 */ 
+		
 		/**
 		 * Se esse Orçamento tiver um desconto válido aplique, logo preciso
 		 * passar por todos os tipos de descontos e validar se ele é aplicável
@@ -41,6 +43,7 @@ public class CalculadoraDeDescontos {
 		 * disponivel, até encontrar um tipo de desconto que é aplicavel.
 		 */
 
+		// tentativa frustrada.. classe cresce com muitos ifs.. nem da pra fazer switch para bigdecimal
 		// obtem o primeiro desconto
 		BigDecimal desconto = new DescontoNoOrcamentoComMaisDeCincoItens().calcularDesconto(orcamento);
 
@@ -61,4 +64,5 @@ public class CalculadoraDeDescontos {
 		return desconto;
 
 	}
+	
 }
