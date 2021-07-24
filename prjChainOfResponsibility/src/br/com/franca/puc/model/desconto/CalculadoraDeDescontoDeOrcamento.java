@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 import br.com.franca.puc.model.orcamento.Orcamento;
 
-public class CalculadoraDeDescontos {
+public class CalculadoraDeDescontoDeOrcamento {
 	/*
 	 * Requisitos 1 - Fornecer descontos baseado no número de itens do orcamento
 	 * (acima de 5 aplicar 5%) 2 - Fornecer descontos baseado no valor do
@@ -12,7 +12,7 @@ public class CalculadoraDeDescontos {
 	 * primeiro desconto de 5% verificar se é elegivel o próximo desconto de
 	 * 10%.
 	 */
-	public BigDecimal calcularDesconto(Orcamento orcamento) {
+	public BigDecimal calcular(Orcamento orcamento) {
 
 		/*
 		 * BigDecimal valor = orcamento.obterValor();
@@ -43,26 +43,43 @@ public class CalculadoraDeDescontos {
 		 * disponivel, até encontrar um tipo de desconto que é aplicavel.
 		 */
 
-		// tentativa frustrada.. classe cresce com muitos ifs.. nem da pra fazer switch para bigdecimal
+		// tentativa frustrada.. classe cresce muito e com muitos ifs.. nem da pra fazer switch para bigdecimal
 		// obtem o primeiro desconto
-		BigDecimal desconto = new DescontoNoOrcamentoComMaisDeCincoItens().calcularDesconto(orcamento);
+		
+		/*
+			BigDecimal desconto = new DescontoNoOrcamentoComMaisDeCincoItens().calcularDesconto(orcamento);
 
-		// se não for elegivel
-		if (desconto == BigDecimal.ZERO) {
-			// busca o segundo
-			desconto = new DescontoParaValoresAcimaDeQuinhetos().calcularDesconto(orcamento.obterValor());
 			// se não for elegivel
 			if (desconto == BigDecimal.ZERO) {
-				// busca proximo desconto..
+				// busca o segundo
+				desconto = new DescontoParaValoresAcimaDeQuinhetos().calcularDesconto(orcamento.obterValor());
+				// se não for elegivel
+				if (desconto == BigDecimal.ZERO) {
+					// busca proximo desconto..
+				} else {
+					return desconto;
+				}
 			} else {
 				return desconto;
 			}
-		} else {
+	
 			return desconto;
-		}
+	 */
+		
+		
+		// todo desconto deve conhecer o próximo desconto, para quando o desconto principal não for atendido chama o próximo
+		/*
+			
+		DescontoNoOrcamentoComMaisDeCincoItens desconto = 
+				new DescontoNoOrcamentoComMaisDeCincoItens(
+						new DescontoNoOrcamentoParaValoresAcimaDeQuinhetos(
+								new DescontoZero()));
+		return desconto.calcular(orcamento);*/
+		
+		
+		DescontoNoOrcamentoParaValoresAcimaDeQuinhetos desconto = new DescontoNoOrcamentoParaValoresAcimaDeQuinhetos();
 
-		return desconto;
-
+		return desconto.calcular(orcamento);
 	}
 	
 }
