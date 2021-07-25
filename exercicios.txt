@@ -1,0 +1,23 @@
+
+Como implementaria isso em java?
+
+Exercicio 1 
+
+a- Dado um Orçamento(valor do seu orcamento) qual é o valor do imposto em cima desse orçamento?
+b - Tipos de impostos existentes ICMS = 10% e ISS = 6%
+
+Exercicio 2
+a- Fornecer descontos baseado no número de itens do orcamento acima de 5 5%
+b- Fornecer descontos baseado no valor do orcamento valor acima de 500.00 10%
+c- Caso não seja elegível o primeiro desconto de 5% verificar se é elegivel o próximo desconto de 10%.
+
+Exercicio 3 
+a - Todos os descontos precisam verficar se o desconto é valido para um orcamento
+O core dessa validação é única para cada desconto, por isso cada método implementa sua validacao 
+b - Todos os descontos precisam efetuar o desconto caso o desconto seja valido
+O core desse desconto é unico para cada desconto, por isso cada desconto implementa seu comportamento
+ 
+ exercicio 4
+ a - Possibilidade de lancar um desconto extra baseado na situação atual do orcamento.
+ b - realizar a transicao de estados do orcamento. De Em Análise para Aprovado por exemplo
+ c - definir regras para transição, só pode ir de em analise para aprovado e não o contrário por exemplo
