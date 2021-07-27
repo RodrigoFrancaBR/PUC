@@ -2,6 +2,15 @@ package br.com.franca.puc.model.orcamento;
 
 import java.math.BigDecimal;
 
+import br.com.franca.puc.model.orcamento.exception.SituacaoDoOrcamentoException;
+/**
+ * Orçamento está com duas responsabilidades, 
+ * 1 Calcular o desconto baseado no estado e efetuar o desconto no orcamento
+ * e outra para aplicar a transição de estado aprovar reprovar etc..
+ *   
+ * @author Rodrigo
+ *
+ */
 public class Orcamento {
 	private BigDecimal valor;
 	// Item poderia ser uma classe...
@@ -72,8 +81,37 @@ public class Orcamento {
 		return this.situacao;
 	}
 
-	public void atualizarSituacao(SituacaoDoOrcamento situacao) {
+	protected void atualizarSituacao(SituacaoDoOrcamento situacao) {
 		this.situacao = situacao;
+	}
+	
+	public void aprovar() throws SituacaoDoOrcamentoException{
+		// suponha que o orcamento esteja em analise, 
+		// teria que ter um if.. se for diferente de em analise dispara exception
+		// se nao muda o estado para aprovado
+		// esse if está implicito no metodo aprovar da subclasse situacao.. 
+		// pois o metodo aprovar vai disparar exception 
+		// se o estado for diferente de em analise 
+		// pode disparar uma exception
+		// o orcamento não precisa tratar isso
+		// pois a exceção que pode disparar é por conta
+		// da situação do orcamento que alguem que nao foi o orcamento configurou
+		// não foi o orcamento que definiu seu estado mas alguem de fora 
+		// com exceção do primeiro estado qdo se cria um orcamento
+		this.situacao.aprovar(this);
+	}
+
+	public void finalizar() throws SituacaoDoOrcamentoException {
+		this.situacao.finalizar(this);		
+	}
+
+	public void reprovar() throws SituacaoDoOrcamentoException {
+		this.situacao.reprovar(this);
+	}
+
+	public void colocarEmAnalise() throws SituacaoDoOrcamentoException {
+		this.situacao.colocarEmAnalise(this);
+		
 	}
 
 }
