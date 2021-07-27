@@ -6,7 +6,13 @@ import br.com.franca.puc.model.orcamento.exception.SituacaoDoOrcamentoException;
 
 public abstract class SituacaoDoOrcamento {
 
-	public abstract BigDecimal calcularDescontoExtra(Orcamento orcamento);
+	// tornar concreto para ter um valor default pois 
+	// quando for finalizado ou reprovado devolve sempre zero
+	// isolar comportamentos comuns na classe mae	
+	// public abstract BigDecimal calcularDescontoExtra(Orcamento orcamento);
+	public BigDecimal calcularDescontoExtra(Orcamento orcamento){
+		return BigDecimal.ZERO;
+	}
 
 	// por default lança exception.. para não lançar a sub-classe precisa sobrescrever o método.
 	public void colocarEmAnalise(Orcamento orcamento) throws SituacaoDoOrcamentoException {
