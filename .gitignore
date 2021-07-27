@@ -271,9 +271,8 @@ GitHub.sublime-settings
 servidores
 offline
 casaBuilder
-impressora
-impressora
 prjStrategy
 prjChainOfResponsibility
-projetos/loja
-#prjTemplate Method
+prjState
+prjTemplate Method
+impressora

@@ -15,7 +15,9 @@ public abstract class DescontoDoOrcamento {
 	// O core dessa validação é única para cada desconto, por isso método abstrato para deixar cada desconto dar seu comportamento
 	// Todos os descontos precisam efetuar o desconto caso o desconto seja valido
 	// O core desse desconto é unico para cada desconto, por isso metodo abstrato para deixar cada desconto dar seu comportamento 
-	public BigDecimal calcular(Orcamento orcamento){
+	// pode se colocar final para garantir que ninguém vai modificar o comportamento do método 
+
+	public final BigDecimal calcular(Orcamento orcamento){
 		return descontoValido(orcamento) ? efetuarDesconto(orcamento): this.proximoDesconto.calcular(orcamento);
 	}
 	
