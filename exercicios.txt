@@ -21,3 +21,6 @@ O core desse desconto é unico para cada desconto, por isso cada desconto implem
  a - Possibilidade de lancar um desconto extra baseado na situação atual do orcamento.
  b - realizar a transicao de estados do orcamento. De Em Análise para Aprovado por exemplo
  c - definir regras para transição, só pode ir de em analise para aprovado e não o contrário por exemplo
+
+ 5 toda vez que um orcamento for finalizado gerar um pedido
+enviar um email, gravar no banco, enviar para outro sistema
