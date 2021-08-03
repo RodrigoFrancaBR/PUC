@@ -1,0 +1,5 @@
+Objetivo: Definir uma família de algoritimos, classes/Algoritimos/Estratégia que implementem uma interface ou classe abstrata (com método abstrato) comum para todos os algoritimos implementarem.
+Cada classe representar uma estratégia (um if, case de um switch em uma classe) 
+Poder trocar de estratégia em tempo de execução.
+Uma classe de contexto define (atributo ou recebe como argumento em um método ou construtor, pode se definir uma estratégia defaul) uma estratégia abstrata(classe Abstrata ou interface).
+Uma classe cliente fornece para esse contexto uma classe concreta da estratégia e todos os dados que o algoritmo (classe concreta da estratégia) precisa para executar sua lógica.

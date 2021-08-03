@@ -24,3 +24,6 @@ O core desse desconto é unico para cada desconto, por isso cada desconto implem
 
  5 toda vez que um orcamento for finalizado gerar um pedido
 enviar um email, gravar no banco, enviar para outro sistema
+gerar nota fiscal.
+6
+orcamento finalizado precisa registrar em uma api externa
